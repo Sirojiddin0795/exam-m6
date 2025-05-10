@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Home - Nobel Project{% endblock %}
+{% block content %}
+  <div class="text-center">
+    <h1 class="mb-4">Sirojiddin Andayev tomonidan tayyorlangan loyiha</h1>
+    <p style="color: teal;">Nobel mukofoti – bu, har yili buyuk ishlar, katta  ixtirolar, jamiyat taraqqiyoti yoxud madaniyatiga
+      salmoqli hissa qo‘shgan kishilarga beriladigan xalqaro  mukofotdir. Ushbu mukofotni shvetsiyalik olim,
+      dinamit ixtirochisi Alfred Nobel ta’sis etgan.  A.Nobelning 1895-yili 27-noyabrda qoldirgan vasiyatiga  ko‘ra,
+      vafotidan keyin undan qolgan mablag‘ asosida  1900-yili Nobel jamg‘armasi tashkil etilgan. Alfred Nobelning
+      vasiyatiga ko‘ra, moddiy tarafdan quvvatlanib, 1895-yilda tatbiq etilgan quyidagi besh yo‘nalish bo‘yicha
+      mukofotlar mavjud: fizika kimyo fiziologiya va tibbiyot adabiyot
+      jahonda tinchlik o‘rnatish ishlari bo‘yicha harakatlar uchun. 1969-yildan boshlab Shved bankining tashabbusi bilan
+      iqtisodiyot sohasida bajarilgan yirik tadqiqotlar uchun ham Nobel mukofoti beriladigan bo‘ldi.
+      Mukofot topshirilishidan avval butun jahondagi yirik tashkilotlar tomonidan mukofot uchun nomzodlarni ko‘rsatish
+      ishlari amalga oshiriladi. Oktabr oyida nomzodlar o‘z mamlakatlarida e’lon qilinadi. Ularning yakuniy tanlovi
+      bilan Shved Qirolligi Fanlar akademiyasi, Karolina instituting Nobel assambleyasi va Norvegiya Nobel qo‘mitasi
+      shug‘ullanadi. Nobel mukofotini topshirish tantanasi Shvetsiya poytaxti Stokgolm va Norvegiya poytaxti Osloda
+      Alfred Nobel vafot etgan kun, ya’ni 10-dekabrda o‘tkaziladi. Stokgolm shahrida fizika, kimyo, fiziologiya va
+      tibbiyot, adabiyot va iqtisodiyot sohalari bo‘yicha mukofotlarni Shvetsiya qiroli topshiradi. Jahonda tinchlikni
+      mustahkamlash ishlari uchun beriladigan Nobel mukofotni esa Oslo shahrida Norvegiya qiroli topshiradi. Birinchi
+      bor ayni mukofot 1901-yilda topshirilgan. Hozirgi vaqtda Nobel mukofotining qiymati 10 million shved kronasiga
+      (1,3 million dollar atrofida) teng.</p>
+  </div>
+
+  <hr>
+
+  <h3 class="mt-4">Account Panel</h3>
+  <div class="d-flex flex-wrap gap-3">
+    {% if user.is_authenticated %}
+      <a href="{% url 'profile' %}" class="btn btn-outline-primary">Profile</a>
+      <a href="{% url 'profile-update' %}" class="btn btn-outline-warning">✏Edit Profile</a>
+      <a href="{% url 'password_change' %}" class="btn btn-outline-secondary">Change Password</a>
+      <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a>
+    {% else %}
+      <a href="{% url 'login' %}" class="btn btn-outline-success">Login</a>
+      <a href="{% url 'register' %}" class="btn btn-outline-primary">Register</a>
+      <a href="{% url 'password_reset' %}" class="btn btn-outline-info">Forgot Password</a>
+    {% endif %}
+  </div>
+
+  <hr>
+
+  <h3 class="mt-4">Nobel Prize Panel</h3>
+  <div class="d-flex flex-wrap gap-3">
+    <a href="{% url 'nobel-list' %}" class="btn btn-dark">Mukofotlarni ko'rish</a>
+    <a href="{% url 'nobel-create' %}" class="btn btn-success">Qo'shish</a>
+  </div>
+
+{% endblock %}
+
+
